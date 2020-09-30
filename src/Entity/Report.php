@@ -38,6 +38,12 @@ class Report
         return $this->id;
     }
 
+    public function __toString(): string
+    {
+        return $this->id . ' ' . $this->record->id;
+    }
+
+
     public function getText(): ?string
     {
         return $this->text;

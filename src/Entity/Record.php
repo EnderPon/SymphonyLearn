@@ -59,6 +59,11 @@ class Record
         $this->reports = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->name . ' ' . $this->hash;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -1,0 +1,28 @@
+easy_admin:
+    site_name: Learning Symphony
+
+    design:
+        menu:
+            - { route: 'homepage', label: 'Back to the website', icon: 'home' }
+            - { entity: 'Record', label: 'Record', icon: 'map-marker' }
+            - { entity: 'Report', label: 'Report', icon: 'comments' }
+
+
+    entities:
+        Record:
+            class: App\Entity\Record
+
+        Report:
+            class: App\Entity\Report
+            list:
+                fields:
+                    - record
+                    - { property: 'createdAt', type: "datetime" }
+                    - text
+                sort: ["createdAt", "ASC"]
+                filters: ["record"]
+            edit:
+                fields:
+                    - { property: 'record' }
+                    - { property: 'createdAt', type: datetime, type_options: { attr: { readonly: true } } }
+                    - text
